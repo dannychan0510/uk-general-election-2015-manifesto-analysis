@@ -9,13 +9,9 @@ conservatives <- 'C:/Users/895284/Documents/GitHub/uk-general-election-2015-mani
 libdem <- readChar(libdem, file.info(libdem)$size)
 conservatives <- readChar(conservatives, file.info(conservatives)$size)
 
-
 strcount <- function(x, pattern, split){
   
-  unlist(lapply(
-    strsplit(x, split),
-    function(z) na.omit(length(grep(pattern, z)))
-  ))
+  unlist(lapply(strsplit(x, split),function(z) na.omit(length(grep(pattern, z)))))
   
 }
 
