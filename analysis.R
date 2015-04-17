@@ -1,12 +1,14 @@
 # WORK IN PROGRESS
 
-
-install.packages("tm")
-library(tm)
 setwd("~/GitHub/uk-general-election-2015-manifesto-analysis")
 
-fileName <- 'C:/Users/895284/Documents/GitHub/uk-general-election-2015-manifesto-analysis/Manifestos/Lib Dem Manifesto 2015 (text version from web).txt'
-test <- readChar(fileName, file.info(fileName)$size)
+libdem <- 'C:/Users/895284/Documents/GitHub/uk-general-election-2015-manifesto-analysis/Manifestos/Lib Dem Manifesto 2015 (text only).txt'
+
+conservatives <- 'C:/Users/895284/Documents/GitHub/uk-general-election-2015-manifesto-analysis/Manifestos/Conservatives Manifesto 2015 (text only).txt'
+
+libdem <- readChar(libdem, file.info(libdem)$size)
+conservatives <- readChar(conservatives, file.info(conservatives)$size)
+
 
 strcount <- function(x, pattern, split){
   
@@ -17,15 +19,8 @@ strcount <- function(x, pattern, split){
   
 }
 
+strcount(tolower(libdem), "nhs", " ")
+strcount(tolower(conservatives), "nhs", " ")
 
-class(test)
-strcount(tolower(test), "nhs", " ")
-test
-
-https://aurelienmadouasse.wordpress.com/2012/05/24/r-code-how-the-to-count-the-number-of-occurrences-of-a-substring-within-a-string/
-
-
-length(grep("a", test))
-
-
-http://johnvictoranderson.org/?p=115
+# https://aurelienmadouasse.wordpress.com/2012/05/24/r-code-how-the-to-count-the-number-of-occurrences-of-a-substring-within-a-string/
+# http://johnvictoranderson.org/?p=115
