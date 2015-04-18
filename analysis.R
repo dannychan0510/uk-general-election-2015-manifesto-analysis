@@ -5,19 +5,24 @@
 # Set working directory
 setwd("~/Documents/GitHub/uk-general-election-2015-manifesto-analysis")
 
+# Convert PDF files to TXT files (requires XPDF to be installed - see README.md for more details
+dest <- "~/Documents/GitHub/uk-general-election-2015-manifesto-analysis/Manifestos"
+myfiles <- list.files(path = dest, pattern = "pdf",  full.names = TRUE)
+lapply(myfiles, function(i) system(paste('"/Users/dannychan0510/Documents/GitHub/uk-general-election-2015-manifesto-analysis/xpdfbin-mac-3.04/bin64/pdftotext"', paste0('"', i, '"')), wait = FALSE))
+
 # Set file paths of the manifestos
-conservatives <- 'Manifestos/Conservatives Manifesto 2015 (text only).txt'
-labour <- 'Manifestos/Labour Manifesto 2015 (text only).txt'
-libdem <- 'Manifestos/Lib Dem Manifesto 2015 (text only).txt'
-greenparty <- 'Manifestos/Green Party Manifesto 2015 (text only).txt'
-ukip <- 'Manifestos/UKIP Manifesto 2015 (text only).txt'
+conservatives <- 'Manifestos/Conservatives Manifesto 2015.txt'
+labour <- 'Manifestos/Labour Manifesto 2015.txt'
+libdem <- 'Manifestos/Lib Dem Manifesto 2015.txt'
+greenparty <- 'Manifestos/Green Party Manifesto 2015.txt'
+ukip <- 'Manifestos/UKIP Manifesto 2015.txt'
 
 # Reading in manifesto text
-conservatives <- readChar(conservatives, file.info(libdem)$size)
-labour <- readChar(labour, file.info(labour)$size)
-libdem <- readChar(libdem, file.info(libdem)$size)
-greenparty <- readChar(greenparty, file.info(greenparty)$size)
-ukip <- readChar(ukip, file.info(ukip)$size)
+conservatives <- readChar(conservatives, file.info(libdem)$size, useBytes = TRUE)
+labour <- readChar(labour, file.info(labour)$size, useBytes = TRUE)
+libdem <- readChar(libdem, file.info(libdem)$size, useBytes = TRUE)
+greenparty <- readChar(greenparty, file.info(greenparty)$size, useBytes = TRUE)
+ukip <- readChar(ukip, file.info(ukip)$size, useBytes = TRUE)
 
 # Convert text to UTF8 form
 conservatives <- iconv(enc2utf8(conservatives), sub="byte")
