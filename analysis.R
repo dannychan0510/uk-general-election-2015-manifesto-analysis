@@ -10,7 +10,7 @@ library(stringr)
 library(data.table)
 library(plyr)
 
-# Convert PDF files to TXT files (requires XPDF to be installed - see README.md for more details
+# Convert PDF files to TXT files (requires XPDF to be installed - see README.md for more details)
 dest <- "~/Documents/GitHub/uk-general-election-2015-manifesto-analysis/Manifestos"
 myfiles <- list.files(path = dest, pattern = "pdf",  full.names = TRUE)
 lapply(myfiles, function(i) system(paste('"/Users/dannychan0510/Documents/GitHub/uk-general-election-2015-manifesto-analysis/xpdfbin-mac-3.04/bin64/pdftotext"', paste0('"', i, '"')), wait = FALSE))
