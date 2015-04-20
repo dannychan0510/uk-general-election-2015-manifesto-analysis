@@ -8,7 +8,7 @@ setwd("~/Documents/GitHub/uk-general-election-2015-manifesto-analysis")
 # Convert PDF files to TXT files (requires XPDF to be installed - see README.md for more details
 dest <- "~/Documents/GitHub/uk-general-election-2015-manifesto-analysis/Manifestos"
 myfiles <- list.files(path = dest, pattern = "pdf",  full.names = TRUE)
-lapply(myfiles, function(i) system(paste('"/Users/dannychan0510/Documents/GitHub/uk-general-election-2015-manifesto-analysis/xpdfbin-mac-3.04/bin64/pdftotext"', paste0('"', i, '"')), wait = FALSE))
+lapply(myfiles, function(i) system(paste('"/Users/dannychan/Documents/GitHub/uk-general-election-2015-manifesto-analysis/xpdfbin-mac-3.04/bin64/pdftotext"', paste0('"', i, '"')), wait = FALSE))
 
 # Set file paths of the manifestos
 conservatives <- 'Manifestos/Conservatives Manifesto 2015.txt'
@@ -31,14 +31,32 @@ libdem <- iconv(enc2utf8(libdem), sub="byte")
 greenparty <- iconv(enc2utf8(greenparty), sub="byte")
 ukip <- iconv(enc2utf8(ukip), sub="byte")
 
+# Remove unnecessary objects
+rm(dest, myfiles)
+
+
+
+# Count analysis of key words ---------------------------------------------
 
 # Loading in strcount function
 strcount <- function(x, pattern, split){
   unlist(lapply(strsplit(x, split),function(z) na.omit(length(grep(pattern, z)))))
 }
 
+
+?lapply
+
+
 strcount(tolower(libdem), "nhs", " ")
 strcount(tolower(conservatives), "nhs", " ")
+
+
+
+
+
+
+
+
 
 
 
