@@ -29,8 +29,7 @@ Given the complexity of language, this could mean that some issues have been mis
 
 However, by comparing the three main parties across the week we will be able to get a picture of how much importance they have placed on the issues of most concern to the electorate.
 
-## Methodology
-Files in this repo:
+## Files in this repo
 - `Manifestos` folder: contains the PDFs of the manifestos used in this analysis
 - `xpdfbin-mac-3.04` & `xpdfbin-win-3.04`: contains the `xpdf.exe` that is used by the R script to strip the text out of the PDF files. One folder is for Mac computers, whilst the other folder is for Windows computers.
 - `analysis.R`: contains the R script for this manifesto analysis
