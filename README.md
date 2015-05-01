@@ -27,7 +27,7 @@ Europe             | Europe/European/EU/Foreign
 
 Given the complexity of language, this could mean that some issues have been missed out or overrepresented.
 
-However, by comparing the three main parties across the week we will be able to get a picture of how much importance they have placed on the issues of most concern to the electorate.
+However, by comparing the give main parties considered in this analysis, we will be able to get a picture of how much importance they have placed on the issues of most concern to the electorate.
 
 ## Files in this repo
 - `Manifestos` folder: contains the PDFs of the manifestos used in this analysis
